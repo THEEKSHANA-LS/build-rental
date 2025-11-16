@@ -5,6 +5,7 @@ import cors from "cors";
 import userRoutes from "./routes/userRoutes.js";
 import jwt from "jsonwebtoken";
 import toolRoutes from "./routes/toolsRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 const app = express(); 
 
@@ -56,6 +57,7 @@ app.use(
 //start api routes...
 app.use("/api/users", userRoutes);
 app.use("/api/tools", toolRoutes);
+app.use("/api/orders", orderRoutes);
 
 //start express server...
 app.listen(5000, ()=>{
