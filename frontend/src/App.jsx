@@ -9,10 +9,9 @@ import SignupPage from './pages/signupPage.jsx';
 const App = () => {
   return (
     <BrowserRouter>
-    <div className="w-full h-[100vh">
+    <div className="w-full h-[100vh]">
       <Toaster position="top-center" />
-
-      <Routes path="/">
+      <Routes>
         <Route path="/*" element={<HomePage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/signup" element={<SignupPage/>}/>
