@@ -65,7 +65,7 @@ export default function LoginPage(){
             </label>
             <div className="relative">
               <input
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)} //track the email input...
                 type="email"
                 id="email"
                 name="email"
