@@ -5,8 +5,10 @@ const toolRoutes = express.Router();  //is used to create a mini-router in Expre
 
 toolRoutes.post("/create-tool", createTool);
 toolRoutes.get("/get-tools", getTools);
+toolRoutes.get("/:toolId", getToolById);
+
+//admin only routes...
 toolRoutes.delete("/:toolId", deleteTool);
 toolRoutes.put("/:toolId", updateTool);
-toolRoutes.get("/:toolId", getToolById);
 
 export default toolRoutes;

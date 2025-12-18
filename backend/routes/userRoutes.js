@@ -6,6 +6,8 @@ const userRoutes = express.Router();  //is used to create a mini-router in Expre
 userRoutes.post("/register", createUser);
 userRoutes.post("/login", loginUser);
 userRoutes.get("/me", getUser);
+
+//admin only...
 userRoutes.get("/all-users", getAllUsers); 
 
 export default userRoutes;

@@ -6,6 +6,7 @@ import BrowserTools from './browserTools.jsx';
 import AboutPage from './aboutPage.jsx';
 import ContactPage from './contactPage.jsx';
 import { ArrowRight } from 'lucide-react'; 
+import MyOrders from './myOrders.jsx';
 
 //hero section component...
 const HeroSection =() =>{
@@ -74,6 +75,7 @@ export default function HomePage(){
           <Route path="/browse-tools" element={<BrowserTools/>}/>
           <Route path="/about" element={<AboutPage/>}/>
           <Route path="/contact" element={<ContactPage/>}/>
+          <Route path="/my-orders" element={<MyOrders/>}/>
         </Routes>
       </main>
       

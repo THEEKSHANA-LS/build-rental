@@ -9,6 +9,7 @@ export async function createOrder(req, res) {
   try {
     const {
       customerName,
+      email,
       nic,
       phone,
       address,
@@ -20,9 +21,9 @@ export async function createOrder(req, res) {
     // --------------------------------------
     // 1. Validate Required Fields
     // --------------------------------------
-    if (!customerName || !nic || !phone || !address) {
+    if (!customerName || !email || !nic || !phone || !address) {
       return res.status(400).json({
-        message: "Customer name, NIC, phone and address are required"
+        message: "Customer name, email, NIC, phone and address are required"
       });
     }
 
@@ -104,6 +105,7 @@ export async function createOrder(req, res) {
     const newOrder = new Order({
       orderId: newOrderId,
       customerName,
+      email : req.body.email,
       nic : req.body.nic,
       phone,
       address,
@@ -143,7 +145,7 @@ export async function createOrder(req, res) {
 }
 
 export function isCustomer(req) {
-    return req.user && req.user.role === "customer";
+    return req.user && req.user.role === "user";
 };
   
 //this api end point used for admin and customer view products...
@@ -164,5 +166,33 @@ export async function getOrders(req, res){
 
 //for update order status by admin...
 export async function updateOrderStatus(req, res){
-   
+   if(!isAdmin(req)){
+    res.status(403).json({
+      message : "Access denied. You are not authorized to update order status."
+    })
+    return;
+   }
+   const orderId = req.params.orderId;
+   const newStatus = req.body.status;
+
+   try{
+    await Order.updateOne(
+      {orderId : orderId},
+      {status : newStatus}
+    )
+
+    res.json(
+      {
+        message : "Order status updated successfully"
+      }
+    );
+
+   } catch(error){
+    console.error(error)
+    res.staus(500).json({
+      message : "Failed to update order status"
+    })
+    return;
+   }
 };
+

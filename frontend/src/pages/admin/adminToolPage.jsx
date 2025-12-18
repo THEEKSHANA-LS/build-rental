@@ -134,13 +134,13 @@ function ToolDeleteConfirm({toolId, close, refresh}){
 
   return(
     <div className="fiexd left-0 top-0 w-full h-screen bg-black/40 z-[100] flex justify-center items-center px-4">
-        <div className="w-full max-w-[450px] bg-white/20 relative rounded-2xl shadow-2xl p-6">
+        <div className="w-full max-w-[500px] bg-white/20 relative rounded-2xl shadow-2xl p-6">
           <IoCloseSharp 
             size={30}
             onClick={close}
             className="absolute right-3 top-3 text-red-500 hover:text-red-700 cursor-pointer"
           />
-          <p className="text-center font-medium mt-6 mb-6 text-black">
+          <p className="text-center font-semibold text-md mt-6 mb-6 text-black">
             Are you sure you want to delete this tool with Id: <span className="font-semibold text-[#ffaa00]">{toolId}</span> ?
           </p>
           <div className="flex justify-center gap-4">

@@ -2,6 +2,7 @@ import React from 'react';
 import { FaHelmetSafety } from 'react-icons/fa6';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
+import UserData from './userData.jsx';
 
 export default function Header(){
  
@@ -20,10 +21,10 @@ export default function Header(){
          <Link to="/contact" className="hover:text-[#ffb800] transition duration-150">Contact</Link>
       </div>
       <div className="flex items-center gap-5">
-        <MdOutlineShoppingCart className="text-white text-2xl"/>
-        <button onClick={() => {
-          navigate("/login")
-        }} className="w-[100px] rounded-xl text-white hover:text-[black] font-bold p-[10px] hover:bg-[#ffb800] border border-gray-100/20">Login</button>
+        <UserData />
+        <MdOutlineShoppingCart 
+           onClick={() => navigate("/cart")}
+           className="text-white text-2xl cursor-pointer"/>
         <button className="w-auto rounded-xl text-black bg-[#ffb800] hover:bg-[#ffb800]/80 p-[10px] font-bold ">Get Started</button>
       </div>
     </div>
